@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+        
+<hibernate-configuration>
+	
+    <session-factory>
+		
+		<!-- Database connection setting -->
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernatedemo</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">root</property>
+        
+        <!-- Jdbc connection pool (use the built-in) -->
+        <property name="hibernate.connection.pool_size">1</property>
+        
+        <!-- Sql Dialect-->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+        
+         <property name="hibernate.current_session_context_class">thread</property>
+        
+        <!-- Disable the second-level cache-->
+        <property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>
+        
+        <!-- Echo all executed SQL stdout-->
+        <property name="hibernate.show_sql">true</property>
+        
+        <!-- Drop and re-create the database schema ON startup ,update zaid wa re -->
+        <property name="hbm2ddl.auto">create</property>
+        
+        <!-- Names the annotated entity class-->
+        <mapping class="com.transferObject.Player" />
+        <mapping class="com.transferObject.Team"/>
+        
+    </session-factory>
+</hibernate-configuration>
